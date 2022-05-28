@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ectest.mapper.businessMapper">
+
+    <resultMap id="Business" type="com.ectest.entity.Business"/>
+    <parameterMap id="Business" type="com.ectest.entity.Business"/>
+
+    <select id="findBusinessBybusinessIdAndPassword" resultMap="Business">
+        SELECT  * FROM business where business_id = #{businessId} and password = #{password}
+    </select>
+
+    <insert id="calculateClearingResult" parameterType="com.ectest.entity.clearingResult">
+        insert into clearing_result values()
+    </insert>
+
+</mapper>
