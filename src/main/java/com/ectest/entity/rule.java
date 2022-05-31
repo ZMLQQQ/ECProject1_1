@@ -8,81 +8,74 @@ import java.util.Date;
 
 @TableName("clearing_rule")
 public class rule {
-    @TableId("rule_id")
-    private String ruleId;
-    @TableField("rule_type")
-    private String ruleType;
-    @TableField("trans_channel")
-    private String transChannel;
-    @TableField("trans_type")
-    private String transType;
-    @TableField("business_id")
-    private String businessId;
+    private String rule_id;
+    private String rule_type;
+    private String trans_channel;
+    private String trans_type;
+    private String business_id;
     private String ratio;
-    @TableField("status")
     private String status;
     @TableField("creat_by")
-    private String creatBy;
+    private String creat_by;
     @TableField("update_time")
-    private Date updateTime;
+    private Date update_time;
     @TableField("remark")
     private String remark;
-
-
-    public String getRuleId() {
-        return ruleId;
-    }
-
-    public void setRuleId(String ruleId) {
-        this.ruleId = ruleId;
-    }
-
-    public String getRuleType() {
-        return ruleType;
-    }
-
-    public void setRuleType(String ruleType) {
-        this.ruleType = ruleType;
-    }
-
-    public String getTransChannel() {
-        return transChannel;
-    }
-
-    public void setTransChannel(String transChannel) {
-        this.transChannel = transChannel;
-    }
-
-    public String getTransType() {
-        return transType;
-    }
-
-    public void setTransType(String transType) {
-        this.transType = transType;
-    }
 
     @Override
     public String toString() {
         return "rule{" +
-                "ruleId='" + ruleId + '\'' +
-                ", ruleType='" + ruleType + '\'' +
-                ", transChannel='" + transChannel + '\'' +
-                ", transType='" + transType + '\'' +
-                ", businessId='" + businessId + '\'' +
+                "rule_id='" + rule_id + '\'' +
+                ", rule_type='" + rule_type + '\'' +
+                ", trans_channel='" + trans_channel + '\'' +
+                ", trans_type='" + trans_type + '\'' +
+                ", business_id='" + business_id + '\'' +
                 ", ratio='" + ratio + '\'' +
                 ", status='" + status + '\'' +
-                ", creatBy='" + creatBy + '\'' +
-                ", updateTime=" + updateTime +
+                ", creat_by='" + creat_by + '\'' +
+                ", update_time=" + update_time +
                 ", remark='" + remark + '\'' +
                 '}';
     }
 
-    public String getBusinessId() {
-        return businessId;
+    public String getRule_id() {
+        return rule_id;
     }
 
-    public void setBusinessId(String businessId) {
-        this.businessId = businessId;
+    public void setRule_id(String rule_id) {
+        this.rule_id = rule_id;
+    }
+
+    public String getRule_type() {
+        return rule_type;
+    }
+
+    public void setRule_type(String rule_type) {
+        this.rule_type = rule_type;
+    }
+
+    public String getTrans_channel() {
+        return trans_channel;
+    }
+
+    public void setTrans_channel(String trans_channel) {
+        this.trans_channel = trans_channel;
+    }
+
+    public String getTrans_type() {
+        return trans_type;
+    }
+
+    public void setTrans_type(String trans_type) {
+        this.trans_type = trans_type;
+    }
+
+    public String getBusiness_id() {
+        return business_id;
+    }
+
+    public void setBusiness_id(String business_id) {
+        this.business_id = business_id;
     }
 
     public String getRatio() {
@@ -101,20 +94,20 @@ public class rule {
         this.status = status;
     }
 
-    public String getCreatBy() {
-        return creatBy;
+    public String getCreat_by() {
+        return creat_by;
     }
 
-    public void setCreatBy(String creatBy) {
-        this.creatBy = creatBy;
+    public void setCreat_by(String creat_by) {
+        this.creat_by = creat_by;
     }
 
-    public Date getUpdateTime() {
-        return updateTime;
+    public Date getUpdate_time() {
+        return update_time;
     }
 
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
+    public void setUpdate_time(Date update_time) {
+        this.update_time = update_time;
     }
 
     public String getRemark() {

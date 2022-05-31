@@ -12,17 +12,6 @@ public class adminController {
     @Autowired
     private com.ectest.mapper.adminMapper adminMapper;
 
-    //管理员登录
-    @GetMapping("/admin/login/{adminId}/{password}")
-    public  String login(@PathVariable String adminId, @PathVariable String password){
-        Admin admin= (Admin) adminMapper.findAdminByadminIdAndPassword(adminId,password);
-        if(admin == null){
-            return "please login in first";
-        }
-        else
-            return  "Welcom "+admin.getAdminName();
-    }
-
     @Autowired
     private com.ectest.mapper.businessMapper businessMapper;
 

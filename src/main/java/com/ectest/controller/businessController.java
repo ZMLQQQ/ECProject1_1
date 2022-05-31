@@ -16,13 +16,6 @@ public class businessController {
     @Autowired
     private com.ectest.mapper.businessMapper businessMapper;
 
-    //查询全部商家
-    @GetMapping("/business/queryAllBusiness")
-    public List<Business> queryAllBusiness() {
-        List<Business> businessList = businessMapper.selectList(null);
-        return businessList;
-    }
-
     //更新商家
     @PutMapping("/business/updateBusiness/{businessName}/{businessId}/{address}/{businessType}/{createBy}/{phone}/{regionCode}")
     public void updateBusiness(@PathVariable String businessName,
@@ -71,40 +64,21 @@ public class businessController {
 
     //创建规则
     @PostMapping("/business/createRule")
-    public void createRule(@RequestBody List<rule> ruleList){
-        businessService.createRule(ruleList);
-    }
+    public String createRule(@RequestBody List<rule> ruleList){
+        System.out.println(ruleList);
+        try{
+            businessService.createRule(ruleList);
+            return "成功";
+        } catch (Exception e){
+            return "失败";
+        }
 
-    @PostMapping("/business/register")
-    public String registerBusiness(@RequestBody Business business){
-        if(business.getBusinessId() == null)
-            return "Plase ";
-        try {
-            businessService.save(business);
-        }
-        catch (Exception e){
-            return  e.getMessage();
-        }
-        return "创建成功!";
+
     }
 
     //注册商家
-    @PostMapping(value = "/business/addBusiness/{businessName}/{businessId}/{address}/{businessType}/{createBy}/{phone}/{regionCode}",produces = "application/json;charset=utf-8")
-    public String addBusiness(@PathVariable String businessName,
-                              @PathVariable String businessId,
-                              @PathVariable String address,
-                              @PathVariable String businessType,
-                              @PathVariable String createBy,
-                              @PathVariable String phone,
-                              @PathVariable String regionCode) {
-        Business business = new Business();
-        business.setBusinessName(businessName);
-        business.setBusinessId(businessId);
-        business.setAddress(address);
-        business.setBusinessType(businessType);
-        business.setCreateBy(createBy);
-        business.setPhone(phone);
-        business.setRegionCode(regionCode);
+    @PostMapping(value = "/business/addBusiness",produces = "application/json;charset=utf-8")
+    public String addBusiness(@RequestBody Business business) {
         int i = businessMapper.insert(business);
         if(i==1){
             return "创建成功！";
